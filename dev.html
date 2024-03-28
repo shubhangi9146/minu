@@ -1,0 +1,30 @@
+import random
+
+def generate_passenger():
+    return random.randint(1, 10)
+
+def bus_game():
+    print("Welcome to the Bus Game!")
+    total_passengers = 0
+    total_stops = 10
+    
+    for stop in range(1, total_stops + 1):
+        passengers_boarding = generate_passenger()
+        total_passengers += passengers_boarding
+        
+        print(f"At stop {stop}, {passengers_boarding} passengers boarded the bus.")
+        
+        if stop != total_stops:
+            passengers_leaving = random.randint(0, total_passengers)
+            total_passengers -= passengers_leaving
+            print(f"{passengers_leaving} passengers left the bus at stop {stop}.")
+        
+        print(f"There are now {total_passengers} passengers on the bus.")
+        print()
+    
+    print("End of the journey!")
+    print(f"Total passengers at the end of the journey: {total_passengers}")
+
+if __name__ == "__main__":
+    bus_game()
+
